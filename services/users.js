@@ -18,6 +18,14 @@ export const getUserById = async (id) => {
   return await User.findById(id);
 };
 
+export const getUserByEmail = async ({email}) => {
+  return await User.findOne({ email : email});
+}
+
+export const getUserByUsername = async ({username}) => {
+  return await User.findOne({ username : username })
+}
+
 export const updateUser = async (id, { username, email, password }) => {
   return await User.findByIdAndUpdate(
     { _id: id },
