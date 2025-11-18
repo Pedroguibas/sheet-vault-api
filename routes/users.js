@@ -6,9 +6,14 @@ import {
   deleteUser,
   getUserByEmail,
   getUserByUsername,
+  getUserLogin,
 } from "../services/users.js";
 
 export const userRoutes = (app) => {
+  app.get("/api/login", async (req, res) => {
+    return res.json(await getUserLogin(req.query));
+  });
+
   app.get("/api/users", async (_, res) => {
     return res.json(await getUsers());
   });

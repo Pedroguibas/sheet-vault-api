@@ -1,4 +1,4 @@
-import { connect } from "./db/db.js";
+import { connectMongo } from "./db/db.js";
 import { userRoutes } from "./routes/users.js";
 import { sheetRoutes } from "./routes/sheets.js";
 import express from "express";
@@ -14,7 +14,7 @@ userRoutes(app);
 sheetRoutes(app);
 
 try {
-  await connect();
+  await connectMongo();
   const API_PORT = 3000;
   app.listen(API_PORT);
   console.log("🚀 API rodando!");

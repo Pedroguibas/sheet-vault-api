@@ -4,7 +4,7 @@ import { sheetSchema } from "./sheet.js";
 export const userSchema = new Schema({
   username: {type: String, unique: true},
   email: {type: String, unique: true},
-  senha: String,
+  password: String,
   sheets: [sheetSchema],
 });
 

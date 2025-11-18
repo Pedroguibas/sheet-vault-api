@@ -10,6 +10,19 @@ export const createUser = async ({
   return await new_user.save();
 };
 
+export const getUserLogin = async ({ user, password }) => {
+  const u = User.findOne({
+    $and: [
+      { $or: [
+        { email: user },
+        { username: user }
+     ]},
+     { password }
+    ]
+  });
+  return u;
+}
+
 export const getUsers = async () => {
   return await User.find({});
 };
