@@ -10,20 +10,16 @@ import {
 } from "../services/users.js";
 
 export const userRoutes = (app) => {
-  app.get("/api/login", async (req, res) => {
-    return res.json(await getUserLogin(req.query));
-  });
-
   app.get("/api/users", async (_, res) => {
     return res.json(await getUsers());
   });
 
   app.get("/api/users/email", async (req, res) => {
-    return res.json(await getUserByEmail(req.query))
+    return res.json(await getUserByEmail(req.query));
   });
 
   app.get("/api/users/username", async (req, res) => {
-    return res.json(await getUserByUsername(req.query))
+    return res.json(await getUserByUsername(req.query));
   });
 
   app.get("/api/users/:id", async (req, res) => {
